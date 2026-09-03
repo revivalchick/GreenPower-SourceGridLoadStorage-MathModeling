@@ -1,0 +1,9 @@
+pandas>=2.2
+numpy>=2.0
+matplotlib>=3.9
+Pyomo>=6.8
+highspy>=1.8
+openpyxl>=3.1
+PyYAML>=6.0
+pytest>=8.0
+

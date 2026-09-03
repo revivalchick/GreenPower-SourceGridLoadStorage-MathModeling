@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "green-power-hydrogen-ammonia-optimization"
+version = "0.1.0"
+description = "Device-level MILP and scenario-based stochastic planning for a green electricity-hydrogen-ammonia park"
+requires-python = ">=3.10"
+dependencies = [
+  "pandas>=2.2",
+  "numpy>=2.0",
+  "matplotlib>=3.9",
+  "Pyomo>=6.8",
+  "highspy>=1.8",
+  "openpyxl>=3.1",
+  "PyYAML>=6.0",
+]
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+

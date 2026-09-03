@@ -1,0 +1,58 @@
+{
+  "typical_solve": {
+    "status": "ok",
+    "termination_condition": "optimal",
+    "objective_yuan_per_year": 253977.90284285712,
+    "battery_energy_mwh": 0.0,
+    "battery_power_mw": 0.0
+  },
+  "deterministic_plan_solve": {
+    "status": "ok",
+    "termination_condition": "optimal",
+    "objective_yuan_per_year": 105060204.09665953,
+    "battery_energy_mwh": 20.585866884104615,
+    "battery_power_mw": 10.292933442053211
+  },
+  "deterministic_evaluation_solve": {
+    "status": "ok",
+    "termination_condition": "optimal",
+    "objective_yuan_per_year": 111682708.79462832,
+    "battery_energy_mwh": 20.585866884104615,
+    "battery_power_mw": 10.292933442053211
+  },
+  "stochastic_solve": {
+    "status": "ok",
+    "termination_condition": "optimal",
+    "objective_yuan_per_year": 111632010.87421095,
+    "battery_energy_mwh": 30.86901457397007,
+    "battery_power_mw": 15.434507286985035
+  },
+  "value_of_stochastic_solution_yuan_per_year": 50697.92041736841,
+  "representative_stochastic_scenario": "W2_P2",
+  "validation": {
+    "typical": {
+      "max_abs_electricity_balance_mw": 1.4210854715202004e-14,
+      "max_abs_hydrogen_balance_kg": 0.0,
+      "max_simultaneous_charge_discharge_mw": 0.0,
+      "max_simultaneous_grid_buy_sell_mw": 0.0,
+      "max_abs_daily_nh3_target_error_t": 0.0,
+      "passed": true
+    },
+    "deterministic_evaluation": {
+      "max_abs_electricity_balance_mw": 1.4210854715202004e-14,
+      "max_abs_hydrogen_balance_kg": 1.1368683772161603e-13,
+      "max_simultaneous_charge_discharge_mw": 0.0,
+      "max_simultaneous_grid_buy_sell_mw": 3.552713678800501e-15,
+      "max_abs_daily_nh3_target_error_t": 7.105427357601002e-15,
+      "passed": true
+    },
+    "stochastic": {
+      "max_abs_electricity_balance_mw": 1.4210854715202004e-14,
+      "max_abs_hydrogen_balance_kg": 0.0,
+      "max_simultaneous_charge_discharge_mw": 7.105427357601003e-15,
+      "max_simultaneous_grid_buy_sell_mw": 2.842170943040401e-14,
+      "max_abs_daily_nh3_target_error_t": 7.105427357601002e-15,
+      "passed": true
+    }
+  }
+}

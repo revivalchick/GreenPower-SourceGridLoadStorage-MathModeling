@@ -1,0 +1,75 @@
+project:
+  name: "绿电直连条件下的电-氢-氨综合能源系统优化"
+  target_nh3_tpd: 54.0
+  hours_per_day: 24
+  days_per_scenario: 15
+
+renewables:
+  wind_capacity_mw: 40.0
+  pv_capacity_mw: 64.0
+  wind_cost_yuan_per_kwh: 0.15
+  pv_cost_yuan_per_kwh: 0.12
+
+grid:
+  sell_price_yuan_per_kwh: 0.3779
+  import_limit_mw: 200.0
+  export_limit_mw: 200.0
+
+equipment:
+  ALK:
+    rated_power_mw: 20.0
+    min_load_fraction: 0.20
+    efficiency: 0.70
+    base_specific_energy_kwh_per_kg_h2: 50.0
+    om_yuan_per_kwh: 0.10
+    startup_cost_yuan: 3000.0
+    ramp_up_fraction_per_hour: 0.30
+    ramp_down_fraction_per_hour: 0.30
+    min_up_hours: 3
+    min_down_hours: 2
+  PEM:
+    rated_power_mw: 20.0
+    min_load_fraction: 0.10
+    efficiency: 0.80
+    base_specific_energy_kwh_per_kg_h2: 50.0
+    om_yuan_per_kwh: 0.15
+    startup_cost_yuan: 1000.0
+    ramp_up_fraction_per_hour: 1.00
+    ramp_down_fraction_per_hour: 1.00
+    min_up_hours: 1
+    min_down_hours: 1
+  NH3:
+    rated_power_mw: 1.50
+    min_load_fraction: 0.30
+    om_yuan_per_kwh: 0.002
+    startup_cost_yuan: 5000.0
+    ramp_up_fraction_per_hour: 0.25
+    ramp_down_fraction_per_hour: 0.25
+    min_up_hours: 4
+    min_down_hours: 2
+    electricity_kwh_per_kg_nh3: 0.50
+    hydrogen_kg_per_kg_nh3: 0.20
+
+battery:
+  energy_cost_yuan_per_kwh: 1000.0
+  lifetime_years: 15
+  om_yuan_per_kwh_throughput: 0.01
+  charge_efficiency: 0.90
+  discharge_efficiency: 0.90
+  self_loss_fraction_per_hour: 0.002
+  min_soc_fraction: 0.10
+  max_soc_fraction: 0.90
+  min_duration_hours: 2.0
+  max_energy_mwh: 300.0
+  max_power_mw: 120.0
+
+solver:
+  name: "highs"
+  mip_rel_gap: 0.0001
+  time_limit_seconds: 240
+
+assumption_notice:
+  - "附件给出的ALK/PEM效率、额定功率及运维成本作为原始参数。"
+  - "爬坡率、最小开停机时间、最低负荷和启动成本为可替换的建模假设，不代表具体设备实测值。"
+  - "附件未给出储能功率成本，因此使用2小时最小储能时长约束，避免功率容量无成本扩张。"
+  - "24个风光组合场景各代表15天，随机规划采用等权场景。"
